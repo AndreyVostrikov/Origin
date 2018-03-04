@@ -4,4 +4,4 @@ i = 0
 while lst[i] != n:
     i += 1
 if lst[i] == n:
-    print(i)
+    print(i)  
