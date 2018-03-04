@@ -5,4 +5,4 @@ x = len(lst) - 1
 while lst[index] != n and x > index:
     index += 1
 if lst[index] == n:
-    print(index)
+    print(index) 
