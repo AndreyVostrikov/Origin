@@ -7,4 +7,4 @@ while lst[index] != n and x > index:
 if lst[index] == n:
     print(index)
 else:
-    print('Элемент не найден') 
+    print('Элемент не найден')  
