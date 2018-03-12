@@ -2,6 +2,7 @@
 # Бинарный поиск осуществляется из саписка элементов введенных нами(количество элементов ограничено 10-ю)
 # Бинарный поиск выводит индекс искомого нами элемента
 
+import SortBySelection
 
 def binary_search(number):
     lst = [int(input('1)Введите число:')), int(input('2)Введите число:')), int(input('3)Введите число:')),
@@ -24,4 +25,5 @@ def binary_search(number):
         return 'Индекс:', right
 
 
-print(binary_search(19))
+# print(binary_search(19))
+SortBySelection.sort_by_selection([3,57,2,8,9,4,3])

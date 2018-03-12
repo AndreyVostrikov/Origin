@@ -1,25 +1,30 @@
-#                                                Сортировка выбором
+# Constant for switching debug and release mode
+DEBUG_MODE = True
+
+# Language selection
+LANG_EN_CODE = 0
+LANG_RU_CODE = 1
+
+# Constant strings for debugging
+DEBUG_MSG_INPUT_LIST = ["Input list: ", "Исходный список: "]
+DEBUG_MSG_OUTPUT_LIST = ["Output list: ", "Отсортированный список: "]
 
 
-def sort_by_selection(lst):
-    print('Исходный результат:', lst)
-    k = 0
-    while k < len(lst) - 1:  # -1, т.к. последний элемент обменивать уже не надо
-        m = k  # в m хранится минимальное значение
-        i = k + 1  # откуда начинать поиск минимума (элемент следующий за k)
-        while i < len(lst):
-            if lst[i] < lst[m]:
-                m = i
-            i += 1
-        t = lst[k]
-        lst[k] = lst[m]
-        lst[m] = t
-        k += 1  # переходим к следующему значению для обмена
-    return 'Конечный результат:', lst
-
-
-print(sort_by_selection([int(input('1)Введите число:')), int(input('2)Введите число:')),
-                         int(input('3)Введите число:')), int(input('4)Введите число:')),
-                         int(input('5)Введите число:')), int(input('6)Введите число:')),
-                         int(input('7)Введите число:')), int(input('8)Введите число:')),
-                         int(input('9)Введите число:')), int(input('10)Введите число:'))]))
+def sort_by_selection(sorted_list, language = LANG_EN_CODE):
+    """Function for sorting list by selection
+    sorted_list - input list for sorting
+    language    - language of debug messages, by default English is chosen"""
+    if DEBUG_MODE: print(DEBUG_MSG_INPUT_LIST[language], sorted_list)
+    lst = sorted_list
+    comparing_element_index = 0
+    while comparing_element_index < len(lst) - 1:
+        start_frame_index = comparing_element_index
+        for i in range(comparing_element_index + 1, len(lst)):
+            if lst[i] < lst[start_frame_index]:
+                start_frame_index = i
+        buffer_element = lst[comparing_element_index]
+        lst[comparing_element_index] = lst[start_frame_index]
+        lst[start_frame_index] = buffer_element
+        comparing_element_index += 1
+    if DEBUG_MODE: print(DEBUG_MSG_OUTPUT_LIST[language], lst)
+    return lst
