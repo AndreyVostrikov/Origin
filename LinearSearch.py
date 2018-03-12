@@ -13,9 +13,9 @@ def linear_search(number):
     while lst[index] != number and x > index:   # В данном циле проводится перебор каждого элемента по порядку
         index += 1
     if lst[index] == number:                    # Если элемент равен искомому - выводим его индекс
-        print('Индекс:', index)
+        return 'Индекс:', index
     else:                                       # В противном случае - выводим "Элемент не найден"
-        print('Элемент не найден')
+        return 'Элемент не найден'
 
 
-print(linear_search(80))   
+print(linear_search(80))
