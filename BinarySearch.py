@@ -24,4 +24,4 @@ def binary_search(number):
         return 'Индекс:', right
 
 
-print(binary_search(18))
+print(binary_search(19))
