@@ -16,7 +16,7 @@ def sort_by_selection(lst):
         t = lst[k]
         lst[k] = lst[m]
         lst[m] = t
-        k += 1  # переходим к следующему значению для обмена
+        k += 1   # переходим к следующему значению для обмена
     return lst
 
 

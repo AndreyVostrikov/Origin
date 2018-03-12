@@ -18,4 +18,4 @@ def linear_search(number):
         return 'Элемент не найден'
 
 
-print(linear_search(80))
+print(linear_search(80)) 
