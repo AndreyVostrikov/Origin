@@ -2,7 +2,7 @@
 # Линейный поиск осуществляется из списка элементов введенных нами (количество элементов ограниченно 10-ю)
 # Линейный поиск выводит индекс искомого нами элемента
 
-from random import randint
+from random import randint   
 A = int(input('Enter size of the list:'))
 random_list = []
 i = 0

@@ -1,4 +1,4 @@
-# Constant for switching debug and release mode
+
 DEBUG_MODE = False
 
 # Language selection
