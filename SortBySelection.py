@@ -1,5 +1,5 @@
 # Constant for switching debug and release mode
-DEBUG_MODE = True
+DEBUG_MODE = False
 
 # Language selection
 LANG_EN_CODE = 0
@@ -28,3 +28,4 @@ def sort_by_selection(sorted_list, language = LANG_EN_CODE):
         comparing_element_index += 1
     if DEBUG_MODE: print(DEBUG_MSG_OUTPUT_LIST[language], lst)
     return lst
+

@@ -1,29 +1,37 @@
-#                                        БИНАРНЫЙ ПОИСК
-# Бинарный поиск осуществляется из саписка элементов введенных нами(количество элементов ограничено 10-ю)
-# Бинарный поиск выводит индекс искомого нами элемента
-
 import SortBySelection
 
-def binary_search(number):
-    lst = [int(input('1)Введите число:')), int(input('2)Введите число:')), int(input('3)Введите число:')),
-           int(input('4)Введите число:')), int(input('5)Введите число:')), int(input('6)Введите число:')),
-           int(input('7)Введите число:')), int(input('8)Введите число:')), int(input('9)Введите число:')),
-           int(input('10)Введите число:'))]        # Ввод в список 10-и значений
-    left = 0                  # Обозначаем индекс левого элемента как 0
-    right = len(lst)          # Обозначаем индекс правого элемента как длинну списка
-    while left < right - 1:   # В данном цикле мы отбрасываем все значения кроме двух,один из которых - искомой элемент
-        mid = (left + right) // 2
-        if lst[mid] > number:
-            right = mid
+
+# Constant for switching debug and release mode
+DEBUG_MODE = False
+
+# Constant strings for debugging
+DEBUG_MSG_INPUT_LIST = ["Input list: ", "Исходный список: "]
+DEBUG_MSG_OUTPUT_LIST = ["Output list: ", "Отсортированный список: "]
+
+
+# Language selection
+LANG_EN_CODE = 0
+LANG_RU_CODE = 1
+
+
+def binary_search(input_element, language = LANG_EN_CODE):
+    element = input_element
+    lst = SortBySelection.sort_by_selection([245, 23, 423, 24, 23, 56, 23])
+    if DEBUG_MODE: print(DEBUG_MSG_OUTPUT_LIST[language], lst)
+    left_border_list = 0
+    right_border_list = len(lst)
+    while left_border_list < right_border_list - 1:
+        middle_list = (left_border_list + right_border_list) // 2
+        if lst[middle_list] > element:
+            right_border_list = middle_list
         else:
-            left = mid
-    if lst[left] == number:        # Если левая граница равна искомому элементу - выводим её индекс на экран
-        return 'Индекс:', left
-    elif lst[right] != number:     # Если же правая граница не равна искомому элементу - выводим "Элемент не найден"
-        return 'Элемент не найден'
-    else:                          # В остальном - выводим индекс правой границы
-        return 'Индекс:', right
+            left_border_list = middle_list
+    if lst[left_border_list] == element:
+        return left_border_list
+    elif lst[right_border_list] != element:
+        return 'Element not found'
+    else:
+        return right_border_list
 
 
-# print(binary_search(19))
-SortBySelection.sort_by_selection([3,57,2,8,9,4,3])
+print(binary_search(23))
