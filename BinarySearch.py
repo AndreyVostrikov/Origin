@@ -15,6 +15,9 @@ LANG_RU_CODE = 1
 
 
 def binary_search(input_element, language = LANG_EN_CODE):
+    """Function for binary search
+    input_element - the index of this element we get in the answer
+    language    - language of debug messages and answers, by default English is chosen"""
     element = input_element
     lst = SortBySelection.sort_by_selection([10, 234, 25, 52, 546])
     if DEBUG_MODE: print(DEBUG_MSG_OUTPUT_LIST[language], lst)
@@ -27,11 +30,11 @@ def binary_search(input_element, language = LANG_EN_CODE):
         else:
             left_border_list = middle_list
     if lst[left_border_list] == element:
-        return print(INDEX_ELEMENT[language], left_border_list)
+        return INDEX_ELEMENT[language], left_border_list
     elif lst[right_border_list] != element:
-        return print(LANGUAGE_OF_OUTPUT[language])
+        return LANGUAGE_OF_OUTPUT[language]
     else:
-        return print(INDEX_ELEMENT[language], right_border_list)
+        return INDEX_ELEMENT[language], right_border_list
 
 
-print(binary_search(522))
+print(binary_search(546))
