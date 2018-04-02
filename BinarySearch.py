@@ -1,26 +1,22 @@
 import SortBySelection
 
-
-# Constant for switching debug and release mode
-DEBUG_MODE = False
-
-# Constant strings for debugging
-DEBUG_MSG_INPUT_LIST = ["Input list: ", "Исходный список: "]
-DEBUG_MSG_OUTPUT_LIST = ["Output list: ", "Отсортированный список: "]
+# Signature
+OUTPUT_LIST = ["Output list: ", "Отсортированный список: "]
 LANGUAGE_OF_OUTPUT = ['Element not found', 'Элемент не найден']
-INDEX_ELEMENT = ['index of element', 'Индекс элемента']
+INDEX_ELEMENT = ['Index of element', 'Индекс элемента']
+
 # Language selection
 LANG_EN_CODE = 0
 LANG_RU_CODE = 1
 
 
-def binary_search(input_element, language = LANG_EN_CODE):
+def binary_search(input_list, required_element, language = LANG_EN_CODE):
     """Function for binary search
-    input_element - the index of this element we get in the answer
-    language    - language of debug messages and answers, by default English is chosen"""
-    element = input_element
-    lst = SortBySelection.sort_by_selection([10, 234, 25, 52, 546])
-    if DEBUG_MODE: print(DEBUG_MSG_OUTPUT_LIST[language], lst)
+    required_element - the index of this element we get in the answer
+    language    - language of answers, by default English is chosen"""
+    element = required_element
+    lst = SortBySelection.sort_by_selection(input_list)
+    print(OUTPUT_LIST[language], lst)
     left_border_list = 0
     right_border_list = len(lst)
     while left_border_list < right_border_list - 1:
@@ -36,5 +32,3 @@ def binary_search(input_element, language = LANG_EN_CODE):
     else:
         return INDEX_ELEMENT[language], right_border_list
 
-
-print(binary_search(546))
