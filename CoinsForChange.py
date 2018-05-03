@@ -39,7 +39,7 @@ def coins_for_change():
             surrender -= banknote_4
             number_of_banknote_or_coins += 1
             print(banknote_4)
-        if surrender >= banknote_5:
+        elif surrender >= banknote_5:
             surrender -= banknote_5
             number_of_banknote_or_coins += 1
             print(banknote_5)
