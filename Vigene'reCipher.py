@@ -1,21 +1,36 @@
-from itertools import cycle
-LEN = 127
-
-
-def full_encode(value, keys):
-    """Function to encrypt using the Vigenere"""
-    return ''.join(map(lambda x: chr((ord(x[0]) + ord(x[1])) % LEN), zip(value, cycle(keys))))
-
-
-def full_decode(value, keys):
-    """Function to decrypt using the Vigenere"""
-    return ''.join(map(lambda x: chr((ord(x[0]) - ord(x[1])) % LEN), zip(value, cycle(keys))))
-
-
-if True:
-    key = str(input('Enter key: '))
+def vigenere_cipher_encode():
+    key = input('Enter key: ')
     word = str(input('Enter the word, which you want to encrypt: '))
-    cipher = full_encode(word, key)
-    print('cipher:', cipher)
-    decoded = full_decode(cipher, key)
-    print('Word:', decoded)
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    new_word_range = []
+    result = ''
+    for index_word in word:
+        if index_word not in alphabet:
+             new_word_range.append(index_word)
+        else:
+            new_word_range.append(alphabet[(alphabet.index(index_word) + len(key)) % len(alphabet)])
+    for index_word in range(len(new_word_range)):
+        result += new_word_range[index_word]
+    return result
+
+
+print(vigenere_cipher_encode())
+
+
+def vigenere_cipher_decode():
+    key = input('Enter key: ')
+    word = str(input('Enter the word, which you want to decrypt: '))
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    new_word_range = []
+    result = ''
+    for index_word in word:
+        if index_word not in alphabet:
+             new_word_range.append(index_word)
+        else:
+            new_word_range.append(alphabet[(alphabet.index(index_word) - len(key)) % len(alphabet)])
+    for index_word in range(len(new_word_range)):
+        result += new_word_range[index_word]
+    return result
+
+
+print(vigenere_cipher_decode())
