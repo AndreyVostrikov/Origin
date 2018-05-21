@@ -1,4 +1,5 @@
 def vigenere_cipher_encode():
+    """Function to encrypt using the Vigenere"""
     key = input('Enter key: ')
     word = str(input('Enter the word, which you want to encrypt: '))
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
@@ -18,6 +19,7 @@ print(vigenere_cipher_encode())
 
 
 def vigenere_cipher_decode():
+    """Function to decrypt using the Viginere"""
     key = input('Enter key: ')
     word = str(input('Enter the word, which you want to decrypt: '))
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
